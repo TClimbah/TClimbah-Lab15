@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -15,32 +16,40 @@ public class EnigmaFrame extends JFrame {
 
     // Setting up the logic
     setTitle("Enigma GUI");
-    setSize(600, 250);
+    setSize(600, 200);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setLocationRelativeTo(null);
     inner = new JComboBox<String>(units);
     middle = new JComboBox<String>(units);
     out = new JComboBox<String>(units);
-    initialPosition = new JTextField("1.0", 4);
+    initialPosition = new JTextField("abc", 4);
     JButton encrypt = new JButton("Encrypt");
     JButton decrypt = new JButton("Decrypt");
     JLabel input = new JLabel("Input");
-    JTextField inputField = new JTextField();
+    JTextField inputField = new JTextField(30);
+    inputField.setSize(100, 100);
     JLabel output = new JLabel("Output");
-    JTextField outputField = new JTextField();
+    JTextField outputField = new JTextField(30);
+    outputField.setSize(100, 100);
     outputField.setEditable(false);
-    // Setting up the window
-    add(inner, BorderLayout.AFTER_LAST_LINE);
-    add(middle, BorderLayout.AFTER_LAST_LINE);
-    add(out, BorderLayout.AFTER_LAST_LINE);
-    add(initialPosition, BorderLayout.AFTER_LAST_LINE);
-    add(encrypt, BorderLayout.AFTER_LAST_LINE);
-    add(decrypt, BorderLayout.AFTER_LAST_LINE);
-    add(input, BorderLayout.SOUTH);
-    add(inputField);
-    add(output, BorderLayout.SOUTH);
-    add(outputField);
 
+    // Setting up the window
+    JPanel top = new JPanel();
+    top.add(inner);
+    top.add(middle);
+    top.add(out);
+    top.add(initialPosition);
+    top.add(encrypt);
+    top.add(decrypt);
+    JPanel center = new JPanel();
+    center.add(input);
+    center.add(inputField);
+    JPanel bottom = new JPanel();
+    bottom.add(output);
+    bottom.add(outputField);
+    add(top, BorderLayout.NORTH);
+    add(center, BorderLayout.CENTER);
+    add(bottom, BorderLayout.SOUTH);
     }
 
 }
