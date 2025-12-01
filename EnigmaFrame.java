@@ -46,7 +46,7 @@ public class EnigmaFrame extends JFrame {
         String result = enigma.encrypt(inputText.toUpperCase());
         outputField.setText(result);
     } catch(Exception ex) {
-        System.out.println("There is an error with the input values");
+        System.out.println("There is an error with the input values, restart");
     }
     });
 
@@ -61,7 +61,7 @@ public class EnigmaFrame extends JFrame {
             String result = enigma.decrypt(inputText.toUpperCase());
             outputField.setText(result);
         } catch(Exception ex) {
-            System.out.println("There is an error with the input values");
+            System.out.println("There is an error with the input values, restart");
         }
         });
 
